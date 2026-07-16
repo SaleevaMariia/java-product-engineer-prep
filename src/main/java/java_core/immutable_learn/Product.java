@@ -6,11 +6,14 @@ public final class Product {
     private final Money price;
 
     public Product(long id, String name, Money price) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id must be positive");
+        }
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Name shouldn't be null or blank");
+            throw new IllegalArgumentException("Name must not be null or blank");
         }
         if (price == null) {
-            throw new IllegalArgumentException("Price shouldn't be null");
+            throw new IllegalArgumentException("Price must not be null");
         }
         this.id = id;
         this.name = name;
@@ -21,11 +24,11 @@ public final class Product {
         return id;
     }
 
-    public Money getPrice() {
-        return price;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public Money getPrice() {
+        return price;
     }
 }
