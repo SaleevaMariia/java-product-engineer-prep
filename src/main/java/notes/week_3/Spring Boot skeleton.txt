@@ -1,0 +1,34 @@
+Spring Boot skeleton
+
+Spring Boot:
+- помогает быстро поднять Spring-приложение
+- даёт auto-configuration
+- поднимает embedded web server
+- создаёт ApplicationContext
+
+ApplicationContext:
+- Spring container
+- хранит beans
+
+Bean:
+Spring bean — это объект, жизненным циклом которого управляет Spring-контейнер:
+Spring создаёт его, хранит в ApplicationContext, внедряет в другие beans и при необходимости уничтожает.
+
+@SpringBootApplication:
+помечает главный конфигурационный класс Spring Boot приложения.
+Она включает auto-configuration, component scan и configuration.
+Web server поднимается не самой аннотацией напрямую, а благодаря SpringApplication.run(...)
+и наличию spring-boot-starter-web в зависимостях.
+
+@RestController:
+это stereotype annotation.
+Она делает класс Spring bean и говорит Spring MVC, что методы этого класса обрабатывают HTTP-запросы,
+ а возвращаемые значения нужно писать прямо в response body.
+
+@GetMapping("/health"):
+связывает HTTP GET запрос на путь /health
+с конкретным Java-методом controller-а.
+
+Endpoint:
+Endpoint — это конкретная точка API, обычно комбинация HTTP method + path,
+ например GET /health или POST /tasks.
