@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    id("io.spring.dependency-management") version "1.1.0"
+    id("org.springframework.boot") version "3.1.1"
 }
 
 version = "1.0-SNAPSHOT"
@@ -21,6 +23,8 @@ repositories {
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation ("org.springframework.boot:spring-boot-starter-web")
 }
 
 tasks.test {
